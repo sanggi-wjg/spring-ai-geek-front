@@ -1,11 +1,13 @@
 import React, {useCallback, useEffect, useState} from "react";
 import axios from "axios";
 import {RotateCcw, Sparkles} from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 const Writing = () => {
     const [userText, setUserText] = useState<string>("");
     const [writingSuggestion, setWritingSuggestion] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const fetchWaitTime = 1500;
 
     const fetchSuggestion = useCallback(async (text: string) => {
         if (!text.trim()) return;
@@ -18,7 +20,6 @@ const Writing = () => {
                 {headers: {"Content-Type": "application/json"}}
             );
             setWritingSuggestion((prev) => [...prev, response.data]);
-            console.log(writingSuggestion)
         } catch (e) {
             console.error("Error fetching suggestion:", e);
         } finally {
@@ -41,7 +42,7 @@ const Writing = () => {
             if (userText.trim() !== "") {
                 fetchSuggestion(userText);
             }
-        }, 1000);
+        }, fetchWaitTime);
 
         return () => clearTimeout(debounceTimer);
     }, [userText, fetchSuggestion]);
@@ -91,10 +92,11 @@ const Writing = () => {
 
                             <div className="p-6 space-y-4 max-h-[calc(100vh-240px)] overflow-y-auto">
                                 {/*{isLoading ? "분석 중..." : (suggestionResponse || "AI가 제안하는 문장 개선 내용이 이곳에 표시됩니다.")}*/}
-                                
+
                                 {
                                     writingSuggestion.map((suggestion, index) => (
                                         <div
+                                            key={index}
                                             className="bg-gray-50 rounded-xl p-4 space-y-3 hover:shadow-md transition-shadow">
                                             <div className="flex items-center justify-between">
                                                         <span className="text-sm font-medium text-indigo-600">
@@ -108,7 +110,8 @@ const Writing = () => {
                                             <div className="space-y-2">
                                                 <div className="bg-indigo-50 rounded-lg p-3 text-sm">
                                                     <div className="text-indigo-600 mb-1">제안:</div>
-                                                    <div className="text-gray-800">{suggestion}</div>
+                                                    {/*<div className="text-gray-800">{suggestion}</div>*/}
+                                                    <ReactMarkdown>{suggestion}</ReactMarkdown>
                                                 </div>
                                             </div>
                                             <div className="flex justify-end space-x-2 pt-2">
