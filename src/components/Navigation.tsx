@@ -6,9 +6,9 @@ export const Navigation = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     return (
-        <nav className="w-64 min-h-screen bg-white shadow-sm">
+        <nav className="w-72 min-h-screen bg-white shadow-sm flex-shrink-0">
             <div className="p-4 space-y-2">
-                <a href="#"
+                <a href="/"
                    className="flex items-center space-x-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
                     <Home className="w-5 h-5"/>
                     <span>홈</span>
