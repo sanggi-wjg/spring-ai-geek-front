@@ -5,6 +5,7 @@ import {Home} from "lucide-react";
 import SearchHistoryList from "./components/SearchHistoryList.tsx";
 import {Header} from "./components/Header.tsx";
 import {Navigation} from "./components/Navigation.tsx";
+import Searching from "./components/Searching.tsx";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/writing" element={<Writing/>}/>
+                    <Route path="/searcing" element={<Searching/>}/>
                     <Route path="/search-histories" element={<SearchHistoryList/>}/>
                 </Routes>
             </div>
