@@ -56,7 +56,7 @@ export const Navigation = () => {
                     {/* Dropdown items */}
                     {isSearchOpen && (
                         <div className="pl-12 space-y-1">
-                            <a href="#"
+                            <a href="/searching"
                                className="block px-4 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
                                 검색 요약
                             </a>

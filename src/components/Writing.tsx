@@ -93,41 +93,39 @@ const Writing = () => {
                             <div className="p-6 space-y-4 max-h-[calc(100vh-240px)] overflow-y-auto">
                                 {/*{isLoading ? "분석 중..." : (suggestionResponse || "AI가 제안하는 문장 개선 내용이 이곳에 표시됩니다.")}*/}
 
-                                {
-                                    writingSuggestion.map((suggestion, index) => (
-                                        <div
-                                            key={index}
-                                            className="bg-gray-50 rounded-xl p-4 space-y-3 hover:shadow-md transition-shadow">
-                                            <div className="flex items-center justify-between">
+                                {writingSuggestion.map((suggestion, index) => (
+                                    <div
+                                        key={index}
+                                        className="bg-gray-50 rounded-xl p-4 space-y-3 hover:shadow-md transition-shadow">
+                                        <div className="flex items-center justify-between">
                                                         <span className="text-sm font-medium text-indigo-600">
                                                           문장 개선
                                                         </span>
-                                            </div>
-                                            <p className="text-gray-600 text-sm">
-                                                문장구조를 자연스럽게 수정해보았어요!
-                                            </p>
+                                        </div>
+                                        <p className="text-gray-600 text-sm">
+                                            문장구조를 자연스럽게 수정해보았어요!
+                                        </p>
 
-                                            <div className="space-y-2">
-                                                <div className="bg-indigo-50 rounded-lg p-3 text-sm">
-                                                    <div className="text-indigo-600 mb-1">제안:</div>
-                                                    {/*<div className="text-gray-800">{suggestion}</div>*/}
-                                                    <ReactMarkdown>{suggestion}</ReactMarkdown>
-                                                </div>
-                                            </div>
-                                            <div className="flex justify-end space-x-2 pt-2">
-                                                <button
-                                                    className="px-4 py-1.5 text-sm text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
-                                                    onClick={() => removeSuggestion(index)}>
-                                                    닫기
-                                                </button>
-                                                <button
-                                                    className="px-4 py-1.5 text-sm text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors">
-                                                    적용
-                                                </button>
+                                        <div className="space-y-2">
+                                            <div className="bg-indigo-50 rounded-lg p-3 text-sm">
+                                                <div className="text-indigo-600 mb-1">제안</div>
+                                                {/*<div className="text-gray-800">{suggestion}</div>*/}
+                                                <ReactMarkdown>{suggestion}</ReactMarkdown>
                                             </div>
                                         </div>
-                                    ))
-                                }
+                                        <div className="flex justify-end space-x-2 pt-2">
+                                            <button
+                                                className="px-4 py-1.5 text-sm text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
+                                                onClick={() => removeSuggestion(index)}>
+                                                닫기
+                                            </button>
+                                            <button
+                                                className="px-4 py-1.5 text-sm text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors">
+                                                적용
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
 
                                 {isLoading && <p>분석 중...</p>}
                             </div>
