@@ -7,7 +7,7 @@ const Writing = () => {
     const [userText, setUserText] = useState<string>("");
     const [writingSuggestion, setWritingSuggestion] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const fetchWaitTime = 1500;
+    const fetchWaitTime = 3000;
 
     const fetchSuggestion = useCallback(async (text: string) => {
         if (!text.trim()) return;
@@ -15,7 +15,7 @@ const Writing = () => {
 
         try {
             const response = await axios.post<string>(
-                "http://localhost:8080/writing-assistant",
+                "http://localhost:8090/writing-assistant",
                 {text: text},
                 {headers: {"Content-Type": "application/json"}}
             );
