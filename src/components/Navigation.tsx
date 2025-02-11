@@ -1,7 +1,8 @@
 import {useState} from "react";
-import {ChevronDown, Edit, Home, Search} from "lucide-react";
+import {Bot, ChevronDown, Edit, Home, Search} from "lucide-react";
 
 export const Navigation = () => {
+    const [isChattingOpen, setIsChattingOpen] = useState(false);
     const [isWritingOpen, setIsWritingOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -13,6 +14,29 @@ export const Navigation = () => {
                     <Home className="w-5 h-5"/>
                     <span>홈</span>
                 </a>
+
+                <div className="space-y-1">
+                    <button onClick={() => setIsChattingOpen(!isChattingOpen)}
+                            className="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div className="flex items-center space-x-3">
+                            <Bot className="w-5 h-5"/>
+                            <span>채팅</span>
+                        </div>
+                        <ChevronDown
+                            className={`w-5 h-5 transition-transform ${isChattingOpen ? 'transform rotate-180' : ''}`}
+                        />
+                    </button>
+
+                    {/* Dropdown items */}
+                    {isChattingOpen && (
+                        <div className="pl-12 space-y-1">
+                            <a href="/chatting"
+                               className="block px-4 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
+                                채팅
+                            </a>
+                        </div>
+                    )}
+                </div>
 
                 <div className="space-y-1">
                     <button onClick={() => setIsWritingOpen(!isWritingOpen)}

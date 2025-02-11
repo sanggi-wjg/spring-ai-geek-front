@@ -129,44 +129,6 @@ const Writing = () => {
 
                                 {isLoading && <p>분석 중...</p>}
                             </div>
-                            {/*<div className="p-6 space-y-4 max-h-[calc(100vh-240px)] overflow-y-auto">
-                                {suggestions.map((suggestion) => (
-                                    <div key={suggestion.id}
-                                         className="bg-gray-50 rounded-xl p-4 space-y-3 hover:shadow-md transition-shadow">
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-sm font-medium text-indigo-600">
-                                              {suggestion.type}
-                                            </span>
-                                        </div>
-                                        <p className="text-gray-600 text-sm">
-                                            {suggestion.content}
-                                        </p>
-
-                                        <div className="space-y-2">
-                                            <div className="bg-white rounded-lg p-3 text-sm">
-                                                <div className="text-gray-500 mb-1">원문:</div>
-                                                <div className="text-gray-800">{suggestion.original}</div>
-                                            </div>
-
-                                            <div className="bg-indigo-50 rounded-lg p-3 text-sm">
-                                                <div className="text-indigo-600 mb-1">제안:</div>
-                                                <div className="text-gray-800">{suggestion.suggested}</div>
-                                            </div>
-                                        </div>
-
-                                        <div className="flex justify-end space-x-2 pt-2">
-                                            <button
-                                                className="px-4 py-1.5 text-sm text-gray-600 hover:bg-gray-200 rounded-lg transition-colors">
-                                                무시
-                                            </button>
-                                            <button
-                                                className="px-4 py-1.5 text-sm text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors">
-                                                적용
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>*/}
                         </div>
                     </div>
                 </div>
